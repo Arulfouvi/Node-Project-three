@@ -1,27 +1,20 @@
 const express = require('express');
 const app = express();
+const dotenv = require('dotenv');
 
-app.get('/api/v1/bootcamp', (req, res) => {
-  res.status(200).json({ success: true, msg: 'show all get' });
+//Route Files
+
+const bootcamp = require('./routes/bootcamp')
+
+//load env 
+dotenv.config({ path: './config/config.env'});
+
+//mount router
+app.get('/', ( req, res) =>{
+ res.send ("<h1>hello team</h1>")
 });
 
-app.get('/api/v1/bootcamp/:id', (req, res) => {
-  res.status(200).json({ success: true, msg: `get the bootcamp ${req.params.id}` });
-});
-
-app.post('/api/v1/bootcamp', (req, res) => {
-  res.status(200).json({ success: true, msg: 'show post get' });
-});
-
-app.put('/api/v1/bootcamp/:id', (req, res) => {
-  res.status(200).json({ success: true, msg: `update the bootcamp ${req.params.id}` });
-});
-
-app.delete('/api/v1/bootcamp', (req, res) => {
-  res.status(200).json({ success: true, msg: 'delete post get' });
-});
-
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}!`);
