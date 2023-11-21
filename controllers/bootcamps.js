@@ -2,6 +2,8 @@
 // @routes  GET /api/v1/bootcamps
 // @access public
 
+const bootcamp = require ('../controllers/bootcamps.js')
+
 exports.getBootcamps = (res,req,next)=>{
     res.status(200).json({ success: true, msg: 'show all get', hello:req.hello });
 }
@@ -16,8 +18,12 @@ exports.getBootcamps = (res,req,next)=>{
 //@description  create bootcamp
 // @routes  Post /api/v1/bootcamps/
 // @access private   u have to login and send a token req
-exports.createBootcamps = (res,req,next)=>{
-    res.status(201).json({ success: true, msg: 'show post get' }); // Use status code 201 for POST requests
+exports.createBootcamps =async (res,req,next)=>{
+   const bootcamp = await bootcamp.create(req.body);
+   res.status (201).json({
+    success: true,
+    data:bootcamp,
+   })
 }
 
 //@description  update bootcamp
