@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
 const morgan = require('morgan');
+const errorHandler =require ('./middleware/error')
 
 
 // Route Files
@@ -23,6 +24,7 @@ if (process.env.NODE_ENV === 'development') {
 // Mount router
 app.use('/api/v1/bootcamps', bootcamp);
 
+
 const PORT = process.env.PORT || 3000;
 
 const server = app.listen(PORT, () => {
@@ -36,3 +38,5 @@ process.on ('unhandleRejection',(err,promise)=>{
   server.close(()=>process.exit(1)
    )
 });
+
+
