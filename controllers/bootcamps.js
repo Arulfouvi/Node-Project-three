@@ -29,8 +29,12 @@ exports.createBootcamps =async (res,req,next)=>{
 //@description  update bootcamp
 // @routes  put /api/v1/bootcamps/id
 // @access private   u have to login and send a token req
-exports.updateBootcamps = (res,req,next)=>{
-    res.status(200).json({ success: true, msg: `update the bootcamp ${req.params.id}` });
+exports.updateBootcamps = async (res,req,next)=>{
+    const bootcamp = await bootcamp.findByIdAndUpdate(req.params.id,req.body,{
+        new:true,
+        runValidators:true
+    });
+        
 }
 
 
