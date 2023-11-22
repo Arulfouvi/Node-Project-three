@@ -2,6 +2,7 @@
 // @routes  GET /api/v1/bootcamps
 // @access public
 
+const ErrorResponse = require ('../utills/errorResponse.js')
 const bootcamp = require ('../controllers/bootcamps.js')
 
 exports.getBootcamps = (res,req,next)=>{
