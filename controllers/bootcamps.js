@@ -4,12 +4,15 @@
 
 const ErrorResponse = require ('../utills/errorResponse.js')
 const bootcamp = require ('../controllers/bootcamps.js')
+const asyncHandler = require ('../middleware/async.js')
 
-exports.getBootcamps = (res,req,next)=>{
-    res.status(200).json({ success: true, msg: 'show all get', hello:req.hello });
-}
-
-//@description  get single bootcamp
+exports.getBootcamps = asyncHandler (async(res,req,next)=>{
+    const bootcamp = bootcamp.find();
+    
+    res
+    .status(200)
+});
+//@description  get single bootcamp new
 // @routes  GET /api/v1/bootcamps/id
 // @access public
 exports.getBootcamps = (res,req,next)=>{
