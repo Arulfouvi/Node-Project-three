@@ -10,3 +10,5 @@ using express router
 controller method
 
 middle ware
+
+mongoose middle ware / slugify
