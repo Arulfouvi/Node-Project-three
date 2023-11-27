@@ -11,9 +11,8 @@ exports.getBootcamps = asyncHandler (async(res,req,next)=>{
     
     res
     .status(200)
-    .json({success: true, count: bootcamp.length, data:bootcamp});
 });
-//@description  get single bootcamp
+//@description  get single bootcamp new
 // @routes  GET /api/v1/bootcamps/id
 // @access public
 exports.getBootcamps = (res,req,next)=>{
